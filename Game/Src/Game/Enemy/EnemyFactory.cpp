@@ -1,11 +1,10 @@
-#include"Enemy.h"
-using namespace std;
+#include"EnemyFactory.h"
 
-class EnemyFactory
+Enemy* EnemyFactory::CreateEnemy(const string& type, int x, int z)
 {
-public:
-	static Enemy* CreateEnemy(const string& type, int x, int z)
-	{
-		if (type == "Normal")return new Enemy(x, z);
-	}
-};
+	// newでクラスのインスタンスを作る
+	if (type == "Normal")return new Enemy(x, z);
+
+	// 存在していなかったら
+	return nullptr;
+}

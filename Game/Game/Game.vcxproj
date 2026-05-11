@@ -137,7 +137,8 @@
     <ClCompile Include="..\Src\Game\Camera\CameraManager.cpp" />
     <ClCompile Include="..\Src\Game\Enemy\Enemy.cpp" />
     <ClCompile Include="..\Src\Game\Enemy\EnemyBase.cpp" />
-    <ClCompile Include="..\Src\Game\Enemy\EnemyFactory.cpp" />
+    <ClCompile Include="..\Src\Game\Enemy\EnemyData.cpp" />
+    <ClCompile Include="..\Src\Game\Enemy\EnemyManager.cpp" />
     <ClCompile Include="..\Src\Game\Field\Field.cpp" />
     <ClCompile Include="..\Src\Game\Player\Player.cpp" />
     <ClCompile Include="..\Src\Game\Scene\PlayScene.cpp" />
@@ -159,7 +160,10 @@
     <ClInclude Include="..\Src\Game\Common.h" />
     <ClInclude Include="..\Src\Game\Enemy\Enemy.h" />
     <ClInclude Include="..\Src\Game\Enemy\EnemyBase.h" />
+    <ClInclude Include="..\Src\Game\Enemy\EnemyData.h" />
+    <ClInclude Include="..\Src\Game\Enemy\EnemyManager.h" />
     <ClInclude Include="..\Src\Game\Field\Field.h" />
+    <ClInclude Include="..\Src\Game\Path.h" />
     <ClInclude Include="..\Src\Game\Player\Player.h" />
     <ClInclude Include="..\Src\Game\Scene\PlayScene.h" />
     <ClInclude Include="..\Src\Game\Scene\ResultScene.h" />

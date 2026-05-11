@@ -2,4 +2,13 @@
 C:\Users\2409421\Desktop\Game\Src\Game\Enemy\EnemyBase.h(5,31): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
   (ソース ファイル '../Src/Game/Enemy/EnemyBase.cpp' をコンパイルしています)
   
-  Game.vcxproj -> C:\Users\2409421\Desktop\Game\x64\Debug\Game.exe
+  EnemyFactory.cpp
+C:\Users\2409421\Desktop\Game\Src\Game\Enemy\EnemyBase.h(5,31): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
+  (ソース ファイル '../Src/Game/Enemy/EnemyFactory.cpp' をコンパイルしています)
+  
+C:\Users\2409421\Desktop\Game\Src\Game\Enemy\Enemy.h(5,1): warning C4091: 'static ': 変数が何も宣言されていないときは、'const char' の左辺を無視します。
+  (ソース ファイル '../Src/Game/Enemy/EnemyFactory.cpp' をコンパイルしています)
+  
+  コードを生成中...
+EnemyFactory.obj : error LNK2019: 未解決の外部シンボル "public: __cdecl Enemy::Enemy(int,int)" (??0Enemy@@QEAA@HH@Z) が関数 "public: static class Enemy * __cdecl EnemyFactory::CreateEnemy(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,int,int)" (?CreateEnemy@EnemyFactory@@SAPEAVEnemy@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HH@Z) で参照されました
+C:\Users\2409421\Desktop\Game\x64\Debug\Game.exe : fatal error LNK1120: 1 件の未解決の外部参照

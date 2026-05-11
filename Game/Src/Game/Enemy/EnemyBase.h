@@ -16,6 +16,10 @@ private:
 
 	tagState m_State;
 
+	int m_Hp;
+	int m_Power;
+	int m_Exp;
+
 	void IdelMove(); // ‘Ò‹@ó‘Ô‚Ì“®‚«
 	void ChaseMove(); // ’ÇÕó‘Ô‚Ì“®‚«
 	void AttackMove(); // UŒ‚‚Ì“®‚«
@@ -32,4 +36,8 @@ public:
 	void Step();
 	// •`‰æ
 	void Draw();
+
+	int SetHp(int hp) { m_Hp = hp; }
+	int SetPower(int power) { m_Power = power; }
+	int SetExp(int exp) { m_Exp = exp; }
 };

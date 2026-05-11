@@ -105,7 +105,10 @@
     <ClCompile Include="..\Src\Game\Enemy\EnemyBase.cpp">
       <Filter>ソース ファイル\Game\Enemy</Filter>
     </ClCompile>
-    <ClCompile Include="..\Src\Game\Enemy\EnemyFactory.cpp">
+    <ClCompile Include="..\Src\Game\Enemy\EnemyData.cpp">
+      <Filter>ソース ファイル\Game\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\Game\Enemy\EnemyManager.cpp">
       <Filter>ソース ファイル\Game\Enemy</Filter>
     </ClCompile>
   </ItemGroup>
@@ -163,6 +166,15 @@
     </ClInclude>
     <ClInclude Include="..\Src\Game\Enemy\EnemyBase.h">
       <Filter>ソース ファイル\Game\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\Game\Enemy\EnemyData.h">
+      <Filter>ソース ファイル\Game\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\Game\Enemy\EnemyManager.h">
+      <Filter>ソース ファイル\Game\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\Game\Path.h">
+      <Filter>ソース ファイル\Game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

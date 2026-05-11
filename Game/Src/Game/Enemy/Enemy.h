@@ -1,8 +1,7 @@
 #pragma once
 #include"EnemyBase.h"
 
-static const char MODEL_PATH = "";
-static const char
+static const char;
 
 class Enemy : public EnemyBase
 {
