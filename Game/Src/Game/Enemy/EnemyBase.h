@@ -16,6 +16,7 @@ private:
 
 	tagState m_State;
 
+	int m_Type;
 	int m_Hp;
 	int m_Power;
 	int m_Exp;
@@ -27,8 +28,8 @@ private:
 public:
 	// コンストラクタ・デストラクタ
 	EnemyBase();
-	~EnemyBase();
-	// 初期化
+	virtual ~EnemyBase() = default;	// 初期化
+
 	void Init();
 	// ロード
 	void Load(int originhndl);
@@ -37,7 +38,12 @@ public:
 	// 描画
 	void Draw();
 
-	int SetHp(int hp) { m_Hp = hp; }
-	int SetPower(int power) { m_Power = power; }
-	int SetExp(int exp) { m_Exp = exp; }
+	bool Request();
+
+	int GetType() { return m_Type; }
+
+	void SetType(int type) { m_Type = type; }
+	void SetHp(int hp) { m_Hp = hp; }
+	void SetPower(int power) { m_Power = power; }
+	void SetExp(int exp) { m_Exp = exp; }
 };

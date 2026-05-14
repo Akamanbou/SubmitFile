@@ -1,17 +1,16 @@
 #pragma once
 #include"EnemyBase.h"
+#include"Zombie.h"
 #include<vector>
 #include<DxLib.h>
 
 using namespace std;
 
-static const char ENEMY_CSV[] = { "../Data/CSV/Enemy.csv" };
+static const char ENEMY_CSV[] =  "../Data/CSV/Enemy.csv" ;
 
 class EnemyData
 {
 private:
-	EnemyBase m_Base;
-
 	struct ReadData
 	{
 		int m_Type;
@@ -26,6 +25,8 @@ private:
 	vector<EnemyBase*>m_VEnemyData;
 
 public:
+	~EnemyData();
 	// クラスの中身を変更せず、コピーなし、変更禁止で返す関数
-	const vector<EnemyData>& GetEnemyData();
+	void SetEnemyData();
+	const vector<EnemyBase*>& GetEnemyData()const;
 };

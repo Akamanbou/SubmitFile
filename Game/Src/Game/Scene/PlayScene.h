@@ -1,5 +1,6 @@
 #pragma once
 #include"../Player/Player.h"
+#include"../Enemy/EnemyManager.h"
 #include"../Camera/CameraManager.h"
 #include"../Field/Field.h"
 #include"../../Lib/Collision/CollisionManager.h"
@@ -23,7 +24,7 @@ private:
 	Player m_Player; // プレイヤーの処理
 	CameraManager m_Camera; // カメラの処理
 	Field m_Field; // フィールドの処理
-
+	EnemyManager m_Enemy; // 敵の処理
 
 public:
 	// コンストラクタ・デストラクタ

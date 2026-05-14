@@ -99,7 +99,7 @@
     <ClCompile Include="..\Src\Lib\Collision\CollisionManager.cpp">
       <Filter>ソース ファイル\Lib\Collision</Filter>
     </ClCompile>
-    <ClCompile Include="..\Src\Game\Enemy\Enemy.cpp">
+    <ClCompile Include="..\Src\Game\Enemy\Zombie.cpp">
       <Filter>ソース ファイル\Game\Enemy</Filter>
     </ClCompile>
     <ClCompile Include="..\Src\Game\Enemy\EnemyBase.cpp">
@@ -161,7 +161,7 @@
     <ClInclude Include="..\Src\Lib\Collision\CollisionManager.h">
       <Filter>ソース ファイル\Lib\Collision</Filter>
     </ClInclude>
-    <ClInclude Include="..\Src\Game\Enemy\Enemy.h">
+    <ClInclude Include="..\Src\Game\Enemy\Zombie.h">
       <Filter>ソース ファイル\Game\Enemy</Filter>
     </ClInclude>
     <ClInclude Include="..\Src\Game\Enemy\EnemyBase.h">

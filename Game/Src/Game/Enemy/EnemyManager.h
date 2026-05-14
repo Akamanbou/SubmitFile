@@ -18,5 +18,6 @@ public:
 	void Draw();
 	void Exit();
 
+	void Update();
 	void Request();
 };

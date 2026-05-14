@@ -79,6 +79,7 @@ void PlayScene::Load()
 {
 	m_Player.Load();
 	m_Field.Load();
+	m_Enemy.Load();
 }
 
 //-----------------------------------
@@ -89,6 +90,7 @@ void PlayScene::Step()
 	m_Player.Step(m_Camera);
 	m_Camera.Step(m_Player.GetCenter(), m_Player.GetRotation().y);
 	m_Field.Step();
+	m_Enemy.Step();
 
 	// “–‚½‚è”»’è-----------------------
 	m_Player.Collision(m_Collision.CheckHitPlToField(m_Player, m_Field.GetHndl()));
@@ -97,6 +99,7 @@ void PlayScene::Step()
 	m_Player.Update();
 	m_Camera.Updata();
 	m_Field.Updata();
+	m_Enemy.Update();
 }
 
 //-----------------------------------
@@ -106,4 +109,5 @@ void PlayScene::Exit()
 {
 	m_Player.Exit();
 	m_Field.Exit();
+	m_Enemy.Exit();
 }

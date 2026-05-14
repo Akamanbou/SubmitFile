@@ -11,10 +11,10 @@ EnemyBase::EnemyBase()
 //----------------------
 // デストラクタ
 //----------------------
-EnemyBase::~EnemyBase()
-{
-	Exit();
-}
+//EnemyBase::~EnemyBase()
+//{
+//	Exit();
+//}
 
 //----------------------
 // 初期化
@@ -67,6 +67,17 @@ void EnemyBase::Draw()
 {
 	if (m_isActive)
 		MV1DrawModel(m_Hndl);
+}
+
+bool EnemyBase::Request()
+{
+	// すでに出現したウサギは生成失敗
+	if (m_isActive)return false;
+
+	// 必要な情報を渡していく
+	m_isActive = true;
+
+	return true;
 }
 
 void EnemyBase::IdelMove(){
