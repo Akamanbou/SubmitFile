@@ -135,6 +135,7 @@
   <ItemGroup>
     <ClCompile Include="..\Src\Game\Camera\Camera.cpp" />
     <ClCompile Include="..\Src\Game\Camera\CameraManager.cpp" />
+    <ClCompile Include="..\Src\Game\Enemy\Robot.cpp" />
     <ClCompile Include="..\Src\Game\Enemy\Zombie.cpp" />
     <ClCompile Include="..\Src\Game\Enemy\EnemyBase.cpp" />
     <ClCompile Include="..\Src\Game\Enemy\EnemyData.cpp" />
@@ -158,6 +159,7 @@
     <ClInclude Include="..\Src\Game\Camera\Camera.h" />
     <ClInclude Include="..\Src\Game\Camera\CameraManager.h" />
     <ClInclude Include="..\Src\Game\Common.h" />
+    <ClInclude Include="..\Src\Game\Enemy\Robot.h" />
     <ClInclude Include="..\Src\Game\Enemy\Zombie.h" />
     <ClInclude Include="..\Src\Game\Enemy\EnemyBase.h" />
     <ClInclude Include="..\Src\Game\Enemy\EnemyData.h" />

@@ -22,6 +22,7 @@ EnemyBase::EnemyBase()
 void EnemyBase::Init()
 {
 	m_State = Idel;
+	m_isActive = true;
 }
 
 //----------------------
@@ -29,7 +30,7 @@ void EnemyBase::Init()
 //----------------------
 void EnemyBase::Load(int originhndl)
 {
-	if (m_Hndl = -1)
+	if (m_Hndl == -1)
 	{
 		// •¡”o‚Ä‚­‚é‚½‚ß‚±‚ÌŠÖ”
 		m_Hndl = MV1DuplicateModel(originhndl);

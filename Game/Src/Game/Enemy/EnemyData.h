@@ -1,6 +1,7 @@
 #pragma once
 #include"EnemyBase.h"
 #include"Zombie.h"
+#include"Robot.h"
 #include<vector>
 #include<DxLib.h>
 
@@ -26,7 +27,8 @@ private:
 
 public:
 	~EnemyData();
-	// クラスの中身を変更せず、コピーなし、変更禁止で返す関数
+
 	void SetEnemyData();
+	// クラスの中身を変更せず、コピーなし、変更禁止で返す関数
 	const vector<EnemyBase*>& GetEnemyData()const;
 };

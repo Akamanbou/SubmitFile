@@ -4,13 +4,15 @@
 // コンストラクタ
 EnemyManager::EnemyManager()
 {
-	//Init();
+	// コンストラクタでm_Dataにnewしておく
+	m_Data = new EnemyData();
 }
 
 // デストラクタ
 EnemyManager::~EnemyManager()
 {
 	Exit();
+	delete m_Data;
 }
 
 // 初期化
@@ -37,9 +39,12 @@ void EnemyManager::Load()
 		{
 		case 0:
 			Hndl = MV1LoadModel(MODEL_PATH[e->GetType()]);
-			e->Load(Hndl);
+			break;
+		case 1:
+			Hndl = MV1LoadModel(MODEL_PATH[e->GetType()]);
 			break;
 		}
+		e->Load(Hndl);
 	}
 	MV1DeleteModel(Hndl);
 }
@@ -56,6 +61,7 @@ void EnemyManager::Step()
 // 描画処理
 void EnemyManager::Draw()
 {
+	
 	for (auto e : m_Data->GetEnemyData())
 	{
 		e->Draw();
@@ -68,7 +74,6 @@ void EnemyManager::Exit()
 	for (auto e : m_Data->GetEnemyData())
 	{
 		e->Exit();
-		delete e;
 	}
 }
 
@@ -81,6 +86,7 @@ void EnemyManager::Update()
 	}
 }
 
+// リクエスト
 void EnemyManager::Request()
 {
 	for (auto e : m_Data->GetEnemyData())

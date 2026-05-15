@@ -1,5 +1,6 @@
 C:\Users\2409421\Desktop\Game\Src\Game\Camera\Camera.cpp;C:\Users\2409421\Desktop\Game\Game\x64\Debug\Camera.obj
 C:\Users\2409421\Desktop\Game\Src\Game\Camera\CameraManager.cpp;C:\Users\2409421\Desktop\Game\Game\x64\Debug\CameraManager.obj
+C:\Users\2409421\Desktop\Game\Src\Game\Enemy\Robot.cpp;C:\Users\2409421\Desktop\Game\Game\x64\Debug\Robot.obj
 C:\Users\2409421\Desktop\Game\Src\Game\Enemy\Zombie.cpp;C:\Users\2409421\Desktop\Game\Game\x64\Debug\Zombie.obj
 C:\Users\2409421\Desktop\Game\Src\Game\Enemy\EnemyBase.cpp;C:\Users\2409421\Desktop\Game\Game\x64\Debug\EnemyBase.obj
 C:\Users\2409421\Desktop\Game\Src\Game\Enemy\EnemyData.cpp;C:\Users\2409421\Desktop\Game\Game\x64\Debug\EnemyData.obj

@@ -60,6 +60,7 @@ void PlayScene::Draw()
 {
 	m_Player.Draw();
 	m_Field.Draw();
+	m_Enemy.Draw();
 }
 
 //-----------------------------------
@@ -70,6 +71,7 @@ void PlayScene::Init()
 	m_Player.Init();
 	m_Camera.Init();
 	m_Field.Init();
+	//m_Enemy.Init();
 }
 
 //-----------------------------------
