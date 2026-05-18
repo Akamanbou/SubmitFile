@@ -23,6 +23,7 @@ void EnemyBase::Init()
 {
 	m_State = Idel;
 	m_isActive = true;
+	m_Radius = 50;
 }
 
 //----------------------
@@ -67,7 +68,10 @@ void EnemyBase::Step()
 void EnemyBase::Draw()
 {
 	if (m_isActive)
+	{
 		MV1DrawModel(m_Hndl);
+		//DrawSphere3D(GetCenter(), m_Radius, 16, RED, GetColor(255, 0, 255), true);
+	}
 }
 
 bool EnemyBase::Request()
@@ -81,10 +85,18 @@ bool EnemyBase::Request()
 	return true;
 }
 
-void EnemyBase::IdelMove(){
+void EnemyBase::IdelMove() {
 }
 void EnemyBase::ChaseMove() {
 }
 void EnemyBase::AttackMove() {
 
+}
+
+int EnemyBase::Death()
+{
+	if (!m_isActive)
+	{
+		return m_Exp;
+	}
 }

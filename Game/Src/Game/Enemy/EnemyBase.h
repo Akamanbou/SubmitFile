@@ -25,6 +25,7 @@ private:
 	void ChaseMove(); // 追跡状態の動き
 	void AttackMove(); // 攻撃の動き
 
+
 public:
 	// コンストラクタ・デストラクタ
 	EnemyBase();
@@ -39,11 +40,15 @@ public:
 	void Draw();
 
 	bool Request();
+	int Death(); // 死亡時に行う処理
+
 
 	int GetType() { return m_Type; }
+	int GetExp() { return m_Exp; }
 
 	void SetType(int type) { m_Type = type; }
 	void SetHp(int hp) { m_Hp = hp; }
 	void SetPower(int power) { m_Power = power; }
 	void SetExp(int exp) { m_Exp = exp; }
+
 };

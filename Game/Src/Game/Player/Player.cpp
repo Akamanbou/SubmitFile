@@ -22,16 +22,22 @@ Player::~Player()
 void Player::Init()
 {
 	m_Pos = { 0.0f,0.0f,-1500.0f };
-	m_Radius = 13.0f;
+	m_Radius = 20.0f;
 	m_isActive = true;
 
 	m_isHitGround = true;
 
 	m_JumpPow = 0.0f;
 
-	m_State = MoveState;
+	m_State = NormalState;
 
+	m_Level = 1;
+	m_Power = 1;
+	m_WantExp = 20;
 
+	m_AtPos = { 0.0f,0.0f,-1500.0f };
+	m_AtCoolTime = 0;
+	m_AtTime = 0;
 }
 
 //--------------------------
@@ -59,6 +65,8 @@ void Player::Step(CameraManager& camera)
 		Jump();
 	}
 
+	Level();
+
 	// 地面に触れていたら
 	if (m_isHitGround)
 		// ジャンプ力をゼロにする
@@ -71,14 +79,32 @@ void Player::Step(CameraManager& camera)
 
 	// プレイヤーの高さにジャンプ力をプラスする
 	m_Pos.y += m_JumpPow;
+	m_AtPos = m_Pos;
 
+	m_AtCoolTime++;
+	if (CInput::IsPush(MOUSE_RIGHT) && m_AtCoolTime >= 60)
+		m_State = AttackState;
 
 	switch (m_State)
 	{
-	case Player::MoveState:
+	case NormalState:
 		// 移動
 		Move(camera);
 		PadMove(camera);
+		break;
+	case AttackState:
+		m_Rot.y = camera.GetCamera().GetRotation().y;
+		// 移動
+		Move(camera);
+		PadMove(camera);
+		if (m_AtTime < PL_AT_TIME)
+			Attack(camera);
+		else
+		{
+			m_AtCoolTime = 0;
+			m_AtTime = 0;
+			m_State = NormalState;
+		}
 		break;
 	}
 }
@@ -292,6 +318,17 @@ void Player::Draw()
 	else
 		DrawFormatString(20, 140, RED, "FALSE");
 
+	if (CInput::IsPush(MOUSE_RIGHT) && m_AtCoolTime >= 60)
+		DrawSphere3D(m_AtPos, m_Radius, 16, RED, RED, FALSE);
+
+	DrawFormatString(20, 160, RED, "%.2f,%.2f,%.2f", m_AtPos.x, m_AtPos.y, m_AtPos.z);
+
+
+	float ExpBar = (900 - 380);
+	ExpBar = ExpBar / m_WantExp;
+	ExpBar = ExpBar * m_NowExp + 380;
+	DrawBox(376, 626, 904, 654, WHITE, true);
+	DrawBox(380, 630, (int)ExpBar, 650, GetColor(0, 255, 0), true);
 }
 
 //------------------------
@@ -299,4 +336,34 @@ void Player::Draw()
 //------------------------
 void Player::HitCale()
 {
+}
+
+//------------------------
+// レベルアップ処理
+//------------------------
+void Player::Level()
+{
+	if (m_NowExp >= m_WantExp)
+	{
+		m_Level += 1;
+		m_NowExp -= m_WantExp;
+		m_WantExp += 20;
+	}
+}
+
+//------------------------
+// 攻撃処理
+//------------------------
+void Player::Attack(CameraManager& camera)
+{
+	int Attack = 0;
+
+	Attack = PL_ATTACK;
+
+	m_AtTime++;
+
+	m_AtPos.x = sinf(m_Rot.y) * Attack;
+	m_AtPos.y = 0.0f;
+	m_AtPos.z = cosf(m_Rot.y) * Attack;
+	m_AtPos = VAdd(m_Pos, m_AtPos);
 }

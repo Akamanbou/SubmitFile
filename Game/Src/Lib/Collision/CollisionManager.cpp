@@ -2,7 +2,7 @@
 
 bool CollisionManager::CheckHitPlToField(Player player, int hndl)
 {
-		VECTOR Result = { 0.0f };
+	VECTOR Result = { 0.0f };
 	VECTOR Center = player.GetCenter();
 	float Radius = player.GetRadius();
 	// “–‚½‚è”»’èî•ñ‚ªŠi”[‚³‚ê‚é\‘¢‘Ì
@@ -49,4 +49,27 @@ bool CollisionManager::CheckHitPlToField(Player player, int hndl)
 		player.SetPosition(VAdd(player.GetPosition(), Result));
 	}
 	return false;
+}
+
+void CollisionManager::CheckHitPlAttackToEnemy(Player& player, EnemyManager& enemy)
+{
+	for (int EnemyID = 0;EnemyID < enemy.GetNum();EnemyID++)
+	{
+		EnemyBase* OneEnemy = enemy.GetEnemyData(EnemyID);
+		if (!OneEnemy->IsActive())continue;
+
+		VECTOR EnemyPos = OneEnemy->GetCenter();
+		float EnemyRad = OneEnemy->GetRadius();
+		VECTOR PlayerPos = player.GetAtPos();
+		float PlayerRad = player.GetRadius();
+
+		bool isHit = Collision::CheckHitSphereToSphere(PlayerPos, PlayerRad, EnemyPos, EnemyRad);
+
+		if (isHit && player.GetState() == Player::AttackState)
+		{
+			OneEnemy->SetActive(false);
+			if (!OneEnemy->IsActive())
+				player.AddExp(OneEnemy->GetExp());
+		}
+	}
 }

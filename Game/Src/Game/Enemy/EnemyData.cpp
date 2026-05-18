@@ -58,7 +58,7 @@ void EnemyData::SetEnemyData()
 	}
 }
 
-const vector<EnemyBase*>& EnemyData::GetEnemyData()const
+const vector<EnemyBase*> EnemyData::GetEnemyData()const
 {
 	return m_VEnemyData;
 }

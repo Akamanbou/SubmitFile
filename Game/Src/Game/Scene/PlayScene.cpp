@@ -58,9 +58,10 @@ int PlayScene::Loop()
 //-----------------------------------
 void PlayScene::Draw()
 {
-	m_Player.Draw();
 	m_Field.Draw();
 	m_Enemy.Draw();
+	m_Player.Draw();
+
 }
 
 //-----------------------------------
@@ -96,6 +97,8 @@ void PlayScene::Step()
 
 	// “–‚½‚è”»’è-----------------------
 	m_Player.Collision(m_Collision.CheckHitPlToField(m_Player, m_Field.GetHndl()));
+
+	m_Collision.CheckHitPlAttackToEnemy(m_Player, m_Enemy);
 
 	// XVˆ—
 	m_Player.Update();

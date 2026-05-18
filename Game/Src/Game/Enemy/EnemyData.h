@@ -7,7 +7,7 @@
 
 using namespace std;
 
-static const char ENEMY_CSV[] =  "../Data/CSV/Enemy.csv" ;
+static const char ENEMY_CSV[] = "../Data/CSV/Enemy.csv";
 
 class EnemyData
 {
@@ -29,6 +29,8 @@ public:
 	~EnemyData();
 
 	void SetEnemyData();
+
+	int GetSize() { return m_VEnemyData.size(); }
 	// クラスの中身を変更せず、コピーなし、変更禁止で返す関数
-	const vector<EnemyBase*>& GetEnemyData()const;
+	const vector<EnemyBase*> GetEnemyData()const;
 };

@@ -29,24 +29,37 @@ static const int PL_BACK = 180;
 static const int PL_RIGHT = 90;
 // 左移動の角度
 static const int PL_LEFT = 270;
+// 攻撃幅
+static const int PL_ATTACK = 20;
+// 攻撃時間
+static const int PL_AT_TIME = 60;
 
 class Player : public Object {
 public:
 	enum  PlayerState {
-		MoveState,	 // 動いている状態
-
+		NormalState,	 // 動いている状態
+		AttackState,
 		PLSTATE_NUM		// 状態の総数
 	};
 private:
 	PlayerState m_State; // プレイヤーの状態
 
 	float m_JumpPow;		// ジャンプ力
+	int m_Level;	// レベル
+	int m_Power;	// 攻撃力
+	int m_NowExp;	// 現在の経験量
+	int m_WantExp;	// 必要経験値量
+
+	VECTOR m_AtPos;
+	int m_AtTime;
+	int m_AtCoolTime;
 
 	// 移動
 	void Move(CameraManager& camera);
 	void PadMove(CameraManager& camera);
 	void Gravity();
 	void Jump();
+	void Attack(CameraManager& camera);
 
 public:
 	// コンストラクタ・デストラクタ
@@ -64,8 +77,14 @@ public:
 	// ヒット後の処理
 	void HitCale();
 
+	void Level();
+
+
 	void Collision(bool hitField);
 
+	VECTOR GetAtPos() { return m_AtPos; }
+
+	void AddExp(int exp) { m_NowExp += exp; }
 
 	PlayerState GetState() { return m_State; }
 	void SetState(PlayerState state) { m_State = state; }
