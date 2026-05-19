@@ -93,7 +93,7 @@ void PlayScene::Step()
 	m_Player.Step(m_Camera);
 	m_Camera.Step(m_Player.GetCenter(), m_Player.GetRotation().y);
 	m_Field.Step();
-	m_Enemy.Step();
+	m_Enemy.Step(m_Player.GetPosition());
 
 	// “–‚½‚è”»’è-----------------------
 	m_Player.Collision(m_Collision.CheckHitPlToField(m_Player, m_Field.GetHndl()));

@@ -1,71 +1,7 @@
-﻿  Player.cpp
-C:\Users\2409421\Desktop\Game\Src\Game\Camera\Camera.h(11,34): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
-  (ソース ファイル '../Src/Game/Player/Player.cpp' をコンパイルしています)
-  
-  PlayScene.cpp
-C:\Users\2409421\Desktop\Game\Src\Game\Camera\Camera.h(11,34): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
-  (ソース ファイル '../Src/Game/Scene/PlayScene.cpp' をコンパイルしています)
-  
+﻿  EnemyBase.cpp
 C:\Users\2409421\Desktop\Game\Src\Game\Enemy\EnemyBase.h(5,31): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
-  (ソース ファイル '../Src/Game/Scene/PlayScene.cpp' をコンパイルしています)
+  (ソース ファイル '../Src/Game/Enemy/EnemyBase.cpp' をコンパイルしています)
   
-C:\Users\2409421\Desktop\Game\Src\Game\Enemy\Zombie.h(4,1): warning C4091: 'static ': 変数が何も宣言されていないときは、'const char' の左辺を無視します。
-  (ソース ファイル '../Src/Game/Scene/PlayScene.cpp' をコンパイルしています)
-  
-C:\Users\2409421\Desktop\Game\Src\Game\Enemy\EnemyData.h(33,42): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
-  (ソース ファイル '../Src/Game/Scene/PlayScene.cpp' をコンパイルしています)
-  
-C:\Users\2409421\Desktop\Game\Src\Game\Enemy\EnemyManager.h(24,51): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
-  (ソース ファイル '../Src/Game/Scene/PlayScene.cpp' をコンパイルしています)
-  
-  SceneManager.cpp
-C:\Users\2409421\Desktop\Game\Src\Game\Camera\Camera.h(11,34): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
-  (ソース ファイル '../Src/Game/Scene/SceneManager.cpp' をコンパイルしています)
-  
-C:\Users\2409421\Desktop\Game\Src\Game\Enemy\EnemyBase.h(5,31): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
-  (ソース ファイル '../Src/Game/Scene/SceneManager.cpp' をコンパイルしています)
-  
-C:\Users\2409421\Desktop\Game\Src\Game\Enemy\Zombie.h(4,1): warning C4091: 'static ': 変数が何も宣言されていないときは、'const char' の左辺を無視します。
-  (ソース ファイル '../Src/Game/Scene/SceneManager.cpp' をコンパイルしています)
-  
-C:\Users\2409421\Desktop\Game\Src\Game\Enemy\EnemyData.h(33,42): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
-  (ソース ファイル '../Src/Game/Scene/SceneManager.cpp' をコンパイルしています)
-  
-C:\Users\2409421\Desktop\Game\Src\Game\Enemy\EnemyManager.h(24,51): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
-  (ソース ファイル '../Src/Game/Scene/SceneManager.cpp' をコンパイルしています)
-  
-  CollisionManager.cpp
-C:\Users\2409421\Desktop\Game\Src\Game\Camera\Camera.h(11,34): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
-  (ソース ファイル '../Src/Lib/Collision/CollisionManager.cpp' をコンパイルしています)
-  
-C:\Users\2409421\Desktop\Game\Src\Game\Enemy\EnemyBase.h(5,31): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
-  (ソース ファイル '../Src/Lib/Collision/CollisionManager.cpp' をコンパイルしています)
-  
-C:\Users\2409421\Desktop\Game\Src\Game\Enemy\Zombie.h(4,1): warning C4091: 'static ': 変数が何も宣言されていないときは、'const char' の左辺を無視します。
-  (ソース ファイル '../Src/Lib/Collision/CollisionManager.cpp' をコンパイルしています)
-  
-C:\Users\2409421\Desktop\Game\Src\Game\Enemy\EnemyData.h(33,42): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
-  (ソース ファイル '../Src/Lib/Collision/CollisionManager.cpp' をコンパイルしています)
-  
-C:\Users\2409421\Desktop\Game\Src\Game\Enemy\EnemyManager.h(24,51): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
-  (ソース ファイル '../Src/Lib/Collision/CollisionManager.cpp' をコンパイルしています)
-  
-C:\Users\2409421\Desktop\Game\Src\Lib\Collision\CollisionManager.cpp(39,17): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
-  Main.cpp
-C:\Users\2409421\Desktop\Game\Src\Game\Camera\Camera.h(11,34): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
-  (ソース ファイル 'Main.cpp' をコンパイルしています)
-  
-C:\Users\2409421\Desktop\Game\Src\Game\Enemy\EnemyBase.h(5,31): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
-  (ソース ファイル 'Main.cpp' をコンパイルしています)
-  
-C:\Users\2409421\Desktop\Game\Src\Game\Enemy\Zombie.h(4,1): warning C4091: 'static ': 変数が何も宣言されていないときは、'const char' の左辺を無視します。
-  (ソース ファイル 'Main.cpp' をコンパイルしています)
-  
-C:\Users\2409421\Desktop\Game\Src\Game\Enemy\EnemyData.h(33,42): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
-  (ソース ファイル 'Main.cpp' をコンパイルしています)
-  
-C:\Users\2409421\Desktop\Game\Src\Game\Enemy\EnemyManager.h(24,51): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
-  (ソース ファイル 'Main.cpp' をコンパイルしています)
-  
-  コードを生成中...
+C:\Users\2409421\Desktop\Game\Src\Game\Enemy\EnemyBase.cpp(117,20): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\2409421\Desktop\Game\Src\Game\Enemy\EnemyBase.cpp(154,1): warning C4715: 'EnemyBase::Death': 値を返さないコントロール パスがあります。
   Game.vcxproj -> C:\Users\2409421\Desktop\Game\x64\Debug\Game.exe

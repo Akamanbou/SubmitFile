@@ -50,11 +50,11 @@ void EnemyManager::Load()
 }
 
 // ‘Ss“®
-void EnemyManager::Step()
+void EnemyManager::Step(VECTOR pos)
 {
 	for (auto e : m_Data->GetEnemyData())
 	{
-		e->Step();
+		e->Step(pos);
 	}
 }
 

@@ -3,6 +3,7 @@
 #include"../Common.h"
 
 static const int WALK_SPEED = 1.0f;
+static const float IDEL_WALK_SPEED = 0.5f;
 
 class EnemyBase : public Object
 {
@@ -20,9 +21,10 @@ private:
 	int m_Hp;
 	int m_Power;
 	int m_Exp;
+	int m_MoveDelay; // 動きに遅延をかける変数
 
 	void IdelMove(); // 待機状態の動き
-	void ChaseMove(); // 追跡状態の動き
+	void ChaseMove(VECTOR pos); // 追跡状態の動き
 	void AttackMove(); // 攻撃の動き
 
 
@@ -35,7 +37,7 @@ public:
 	// ロード
 	void Load(int originhndl);
 	// 全処理
-	void Step();
+	void Step(VECTOR pos);
 	// 描画
 	void Draw();
 

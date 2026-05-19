@@ -14,7 +14,7 @@ public:
 
 	void Init();
 	void Load();
-	void Step();
+	void Step(VECTOR pos);
 	void Draw();
 	void Exit();
 
