@@ -39,9 +39,8 @@ int SceneManager::Loop()
 		// メインゲーム
 	case SceneManager::GAME:
 		// ループが終わったら次へ
-		m_Play.Loop();
 		// 左クリックをするか、Bボタンを押したらゲームへ進む
-		if (CInput::IsPush(MOUSE_LEFT) || CGamePad::IsPadPush(DX_INPUT_PAD1, BUTTON_B))
+		if (m_Play.Loop() != -1)
 			m_SceneID = RESULT;
 		break;
 		// リザルト

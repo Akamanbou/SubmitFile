@@ -39,8 +39,9 @@ int PlayScene::Loop()
 		break;
 	case PlayScene::END:
 		Exit();
-		m_State = INIT; // 次へ進む
 		Result = 0;
+		m_Enemy.ReStart(); // 敵のリスタート時の初期化
+		m_State = INIT; // 次へ進む
 		break;
 	case PlayScene::PLAY_SCENE_NUM:
 		break;
@@ -72,7 +73,7 @@ void PlayScene::Init()
 	m_Player.Init();
 	m_Camera.Init();
 	m_Field.Init();
-	//m_Enemy.Init();
+	m_Enemy.Init();
 }
 
 //-----------------------------------
@@ -99,6 +100,11 @@ void PlayScene::Step()
 	m_Player.Collision(m_Collision.CheckHitPlToField(m_Player, m_Field.GetHndl()));
 
 	m_Collision.CheckHitPlAttackToEnemy(m_Player, m_Enemy);
+	m_Collision.CheckHitEnemyAttackToPl(m_Player, m_Enemy);
+	m_Collision.CheckHitEnemyToEnemyPick(m_Enemy, m_Player);
+
+	if (!m_Player.IsActive())
+		m_State = END;
 
 	// 更新処理
 	m_Player.Update();

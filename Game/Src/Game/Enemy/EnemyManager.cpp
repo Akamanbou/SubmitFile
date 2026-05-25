@@ -11,8 +11,12 @@ EnemyManager::EnemyManager()
 // デストラクタ
 EnemyManager::~EnemyManager()
 {
-	Exit();
-	delete m_Data;
+	/*Exit();*/
+}
+
+void EnemyManager::ReStart()
+{
+	m_Data = new EnemyData();
 }
 
 // 初期化
@@ -20,7 +24,7 @@ void EnemyManager::Init()
 {
 	for (auto e : m_Data->GetEnemyData())
 	{
-		e->Init();
+		m_Data = new EnemyData();
 	}
 }
 
@@ -29,6 +33,7 @@ void EnemyManager::Load()
 {
 	// まずは何も入れない
 	int Hndl = -1;
+	int HpHndl = -1;
 
 	m_Data->SetEnemyData();
 
@@ -39,14 +44,17 @@ void EnemyManager::Load()
 		{
 		case 0:
 			Hndl = MV1LoadModel(MODEL_PATH[e->GetType()]);
+			HpHndl = MV1LoadModel(HP_BAR_IMAGE);
 			break;
 		case 1:
 			Hndl = MV1LoadModel(MODEL_PATH[e->GetType()]);
+			HpHndl = MV1LoadModel(HP_BAR_IMAGE);
 			break;
 		}
-		e->Load(Hndl);
+		e->Load(Hndl,HpHndl);
 	}
 	MV1DeleteModel(Hndl);
+	MV1DeleteModel(HpHndl);
 }
 
 // 全行動
@@ -65,6 +73,7 @@ void EnemyManager::Draw()
 	for (auto e : m_Data->GetEnemyData())
 	{
 		e->Draw();
+		e->DrawHpBar();
 	}
 }
 
@@ -75,6 +84,7 @@ void EnemyManager::Exit()
 	{
 		e->Exit();
 	}
+	delete m_Data;
 }
 
 // 更新処理

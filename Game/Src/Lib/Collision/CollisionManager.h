@@ -11,4 +11,8 @@ public:
 
 	// ƒvƒŒƒCƒ„[‚ÌUŒ‚‚Æ“G‚Ì“–‚½‚è”»’è
 	void CheckHitPlAttackToEnemy(Player& player, EnemyManager& enemy);
+	// “G‚ÌUŒ‚‚ÆƒvƒŒƒCƒ„[‚Ì“–‚½‚è”»’è
+	void CheckHitEnemyAttackToPl(Player& player, EnemyManager& enemy);
+	// “G“¯m‚Ì’e‚«”»’è
+	void CheckHitEnemyToEnemyPick(EnemyManager& enemy,Player&player);
 };

@@ -32,7 +32,9 @@ void Player::Init()
 	m_State = NormalState;
 
 	m_Level = 1;
-	m_Power = 1;
+	m_Power = 5;
+	m_Hp = 50;
+	m_MaxHp = 50;
 	m_WantExp = 20;
 
 	m_AtPos = { 0.0f,0.0f,-1500.0f };
@@ -57,6 +59,8 @@ void Player::Load()
 //------------------------
 void Player::Step(CameraManager& camera)
 {
+	if (m_Hp <= 0)
+		m_isActive = false;
 
 	// 地面に触れていて
 	if (m_isHitGround)
@@ -65,7 +69,7 @@ void Player::Step(CameraManager& camera)
 		Jump();
 	}
 
-	Level();
+	LevelUp();
 
 	// 地面に触れていたら
 	if (m_isHitGround)
@@ -98,7 +102,7 @@ void Player::Step(CameraManager& camera)
 		Move(camera);
 		PadMove(camera);
 		if (m_AtTime < PL_AT_TIME)
-			Attack(camera);
+			Attack();
 		else
 		{
 			m_AtCoolTime = 0;
@@ -310,7 +314,6 @@ void Player::Draw()
 	//MV1DrawModel(m_Hndl);
 
 	DrawFormatString(20, 120, RED, "%.2f,%.2f,%.2f", m_Pos.x, m_Pos.y, m_Pos.z);
-	//DrawSphere3D(GetCenter(), m_Radius, 16, RED, RED, FALSE);
 	if (m_isHitGround)
 	{
 		DrawFormatString(20, 140, RED, "TRUE");
@@ -322,39 +325,49 @@ void Player::Draw()
 		DrawSphere3D(m_AtPos, m_Radius, 16, RED, RED, FALSE);
 
 	DrawFormatString(20, 160, RED, "%.2f,%.2f,%.2f", m_AtPos.x, m_AtPos.y, m_AtPos.z);
+	DrawFormatString(20, 180, RED, "%d", m_Level);
+	DrawFormatString(20, 200, RED, "%d", m_Power);
 
-
-	float ExpBar = (900 - 380);
+	float ExpBar = (BAR_RIGHT - BAR_LEFT);
 	ExpBar = ExpBar / m_WantExp;
-	ExpBar = ExpBar * m_NowExp + 380;
-	DrawBox(376, 626, 904, 654, WHITE, true);
-	DrawBox(380, 630, (int)ExpBar, 650, GetColor(0, 255, 0), true);
+	ExpBar = ExpBar * m_NowExp + BAR_LEFT;
+	DrawBox(BAR_LEFT - 4, BAR_TOP - 4, BAR_RIGHT + 4, BAR_BOTTOM + 4, WHITE, true);
+	DrawBox(BAR_LEFT, BAR_TOP, (int)ExpBar, BAR_BOTTOM, YELLOW, true);
+
+	float HpBar = (BAR_RIGHT - BAR_LEFT);
+	HpBar = HpBar / m_MaxHp;
+	HpBar = HpBar * m_Hp + BAR_LEFT;
+	DrawBox(BAR_LEFT - 4, BAR_TOP +46, BAR_RIGHT + 4, BAR_BOTTOM + 54, WHITE, true);
+	DrawBox(BAR_LEFT, BAR_TOP + 50, (int)HpBar, BAR_BOTTOM + 50, GetColor(0, 255, 0), true);
+
 }
 
 //------------------------
 	// ヒット後の処理
 //------------------------
-void Player::HitCale()
+void Player::HitCale(int power)
 {
+	m_Hp -= power;
 }
 
 //------------------------
 // レベルアップ処理
 //------------------------
-void Player::Level()
+void Player::LevelUp()
 {
 	if (m_NowExp >= m_WantExp)
 	{
 		m_Level += 1;
 		m_NowExp -= m_WantExp;
 		m_WantExp += 20;
+		m_Power += 5;
 	}
 }
 
 //------------------------
 // 攻撃処理
 //------------------------
-void Player::Attack(CameraManager& camera)
+void Player::Attack()
 {
 	int Attack = 0;
 

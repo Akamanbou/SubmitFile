@@ -47,6 +47,8 @@ private:
 	float m_JumpPow;		// ジャンプ力
 	int m_Level;	// レベル
 	int m_Power;	// 攻撃力
+	int m_MaxHp;
+	int m_Hp;
 	int m_NowExp;	// 現在の経験量
 	int m_WantExp;	// 必要経験値量
 
@@ -59,7 +61,7 @@ private:
 	void PadMove(CameraManager& camera);
 	void Gravity();
 	void Jump();
-	void Attack(CameraManager& camera);
+	void Attack();
 
 public:
 	// コンストラクタ・デストラクタ
@@ -75,10 +77,10 @@ public:
 	// 描画処理
 	void Draw();
 	// ヒット後の処理
-	void HitCale();
+	void HitCale(int power);
 
-	void Level();
-
+	void LevelUp();
+	int GetPower() { return m_Power; }
 
 	void Collision(bool hitField);
 

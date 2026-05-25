@@ -12,6 +12,7 @@ public:
 	EnemyManager();
 	~EnemyManager();
 
+	void ReStart();
 	void Init();
 	void Load();
 	void Step(VECTOR pos);
