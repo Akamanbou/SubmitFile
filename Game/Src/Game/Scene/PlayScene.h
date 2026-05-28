@@ -4,6 +4,7 @@
 #include"../Camera/CameraManager.h"
 #include"../Field/Field.h"
 #include"../../Lib/Collision/CollisionManager.h"
+#include"../../Lib/system/SoundManager.h"
 
 class PlayScene
 {
@@ -25,6 +26,7 @@ private:
 	CameraManager m_Camera; // カメラの処理
 	Field m_Field; // フィールドの処理
 	EnemyManager m_Enemy; // 敵の処理
+	SoundManager m_Sound;
 
 public:
 	// コンストラクタ・デストラクタ

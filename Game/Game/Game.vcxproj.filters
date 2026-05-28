@@ -49,6 +49,9 @@
     <Filter Include="ソース ファイル\Game\Enemy">
       <UniqueIdentifier>{b77a4de6-2824-4ade-b89f-a222ede9f2bd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Lib\System">
+      <UniqueIdentifier>{a2c36c38-98c9-40a9-99d5-272281475c23}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -113,6 +116,9 @@
     </ClCompile>
     <ClCompile Include="..\Src\Game\Enemy\Robot.cpp">
       <Filter>ソース ファイル\Game\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\Lib\system\SoundManager.cpp">
+      <Filter>ソース ファイル\Lib\System</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -181,6 +187,9 @@
     </ClInclude>
     <ClInclude Include="..\Src\Game\Enemy\Robot.h">
       <Filter>ソース ファイル\Game\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\Lib\system\SoundManager.h">
+      <Filter>ソース ファイル\Lib\System</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

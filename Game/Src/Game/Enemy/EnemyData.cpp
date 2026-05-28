@@ -26,7 +26,7 @@ void EnemyData::SetEnemyData()
 	    &Data.m_Pos.x,
 	    &Data.m_Pos.y,
 	    &Data.m_Pos.z,
-	    &Data.m_Hp,
+	    &Data.m_MaxHp,
 	    &Data.m_Power,
 	    &Data.m_Exp) != EOF)
 	{
@@ -49,7 +49,7 @@ void EnemyData::SetEnemyData()
 		// ‚»‚ê‚¼‚ê”’l‚ð“ü‚ê‚Ä‚¢‚­
 	    temp->SetType(Data.m_Type);
 	    temp->SetPosition(Data.m_Pos);
-	    temp->SetHp(Data.m_Hp);
+	    temp->SetMaxHp(Data.m_MaxHp);
 	    temp->SetPower(Data.m_Power);
 	    temp->SetExp(Data.m_Exp);
 

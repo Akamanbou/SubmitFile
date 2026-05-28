@@ -32,6 +32,7 @@ int PlayScene::Loop()
 		break;
 	case PlayScene::LOAD:
 		Load();
+		m_Sound.Play(SoundManager::SOUND_BGM, DX_PLAYTYPE_LOOP, TRUE);
 		m_State = MAIN; // 次へ進む
 		break;
 	case PlayScene::MAIN:
@@ -39,6 +40,7 @@ int PlayScene::Loop()
 		break;
 	case PlayScene::END:
 		Exit();
+		m_Sound.AllStop();
 		Result = 0;
 		m_Enemy.ReStart(); // 敵のリスタート時の初期化
 		m_State = INIT; // 次へ進む
@@ -74,6 +76,7 @@ void PlayScene::Init()
 	m_Camera.Init();
 	m_Field.Init();
 	m_Enemy.Init();
+	m_Sound.Init();
 }
 
 //-----------------------------------
@@ -84,6 +87,7 @@ void PlayScene::Load()
 	m_Player.Load();
 	m_Field.Load();
 	m_Enemy.Load();
+	m_Sound.Load();
 }
 
 //-----------------------------------
@@ -121,4 +125,5 @@ void PlayScene::Exit()
 	m_Player.Exit();
 	m_Field.Exit();
 	m_Enemy.Exit();
+	m_Sound.Exit();
 }

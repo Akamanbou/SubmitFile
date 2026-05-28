@@ -22,6 +22,7 @@ EnemyBase::EnemyBase()
 void EnemyBase::Init()
 {
 	m_HpHndl = -1;
+	m_HpBackHndl = -1;
 
 	m_State = Idel;
 	m_isActive = true;
@@ -35,13 +36,15 @@ void EnemyBase::Init()
 
 	m_Len = 0.0f;
 
+	m_Hp = m_MaxHp;
+
 	m_Attack = false;
 }
 
 //----------------------
 // ロード
 //----------------------
-void EnemyBase::Load(int originhndl,int hphndl)
+void EnemyBase::Load(int originhndl)
 {
 	if (m_Hndl == -1)
 	{
@@ -50,7 +53,11 @@ void EnemyBase::Load(int originhndl,int hphndl)
 	}
 	if (m_HpHndl == -1)
 	{
-		m_HpHndl = MV1DuplicateModel(hphndl);
+		m_HpHndl = LoadGraph(HP_BAR_IMAGE);
+	}
+	if (m_HpBackHndl == -1)
+	{
+		m_HpBackHndl = LoadGraph(HP_BAR_BACK_IMAGE);
 	}
 }
 
@@ -67,21 +74,19 @@ void EnemyBase::Step(VECTOR pos)
 	// 毎フレーム引いていく
 	m_MoveDelay--;
 
-	// プレイヤーとの距離を計算する
-	float Len = 0.0f;
 
 	// 距離の計算
-	Len = (pos.x - m_Pos.x) * (pos.x - m_Pos.x) + (pos.z - m_Pos.z) * (pos.z - m_Pos.z); // それぞれの 終点-始点 を計算する
-	Len = sqrtf(Len); // √をとってフロート型にするためにsqrtfをする
+	m_Len = (pos.x - m_Pos.x) * (pos.x - m_Pos.x) + (pos.z - m_Pos.z) * (pos.z - m_Pos.z); // それぞれの 終点-始点 を計算する
+	m_Len = sqrtf(m_Len); // √をとってフロート型にするためにsqrtfをする
 	AttackMove(pos);
 
 	// 一定距離以内に来たらプレイヤーに近づいてくる
-	if (Len <= 100)
+	if (m_Len <= 100)
 		m_State = Chase;
 	else
 		m_State = Idel;
 
-	if (Len <= ENE_ATTACK)
+	if (m_Len <= ENE_ATTACK)
 	{
 		m_State = Attack;
 	}
@@ -107,7 +112,7 @@ void EnemyBase::Step(VECTOR pos)
 			m_Attack = true;
 			m_AtCoolTime = 0;
 		}
-		if (Len >= ENE_ATTACK)
+		if (m_Len >= ENE_ATTACK)
 		{
 			m_State = Chase;
 		}
@@ -126,6 +131,7 @@ void EnemyBase::Draw()
 	{
 		MV1DrawModel(m_Hndl);
 		DrawSphere3D(GetCenter(), 10.0f, m_Radius, RED, GetColor(255, 0, 255), true);
+		DrawHpBar();
 	}
 }
 
@@ -134,14 +140,25 @@ void EnemyBase::Draw()
 //----------------------
 void EnemyBase::DrawHpBar()
 {
-	if (m_isActive)
+	if (m_isActive&&m_Len <= 400.0f)
 	{
-		VECTOR Pos = GetCenter();
-		Pos.y += 50.0f;
-
-		SetUseZBuffer3D(TRUE);
-		SetWriteZBuffer3D(TRUE);
-		DrawBillboard3D(Pos, 0.5f, 0.1f, 0.0f, 0.0f, m_HpHndl, TRUE);
+		VECTOR pos = m_Pos;
+		// 高さを上げる
+		pos.y += 30.0f;
+		float Rate = (float)m_Hp / (float)m_MaxHp; // 現在のHPが最大HPの何％かを求める
+		float Width = 50.0f * Rate; // 実際のHPバーの長さを求める（50は最大HPの時のバーの長さ）
+		// 下地描画
+		DrawModiBillboard3D(pos, -25.0f, -3.0f, // 左上
+								  25.0f, -3.0f, // 右上
+								  25.0f, 3.0f,	// 右下
+								 -25.0f, 3.0f,	// 左下
+								  m_HpBackHndl, TRUE);
+		// Hpバー描画
+		DrawModiBillboard3D(pos, -25.0f, -3.0f,			// 左上
+			                     -25.0f + Width, -3.0f, // 右上
+			                     -25.0f + Width, 3.0f, 	// 右下
+			                     -25.0f, 3.0f, 			// 左下
+			                     m_HpHndl, TRUE);
 	}
 }
 

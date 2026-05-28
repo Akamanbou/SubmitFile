@@ -8,6 +8,6 @@ class Enemy : public EnemyBase
 private:
 
 public:
-	Enemy(int x, int z);
+	Enemy();
 	~Enemy();
 };

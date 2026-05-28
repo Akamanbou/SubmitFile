@@ -16,7 +16,7 @@ private:
 	{
 		int m_Type;
 		VECTOR m_Pos;
-		int m_Hp;
+		int m_MaxHp;
 		int m_Power;
 		int m_Exp;
 	};

@@ -3,6 +3,8 @@
 #include"../Common.h"
 
 static const char HP_BAR_IMAGE[] = { "../Data/Image/HpBar.png" };
+static const char HP_BAR_BACK_IMAGE[] = { "../Data/Image/HpBarBack.png" };
+
 static const int WALK_SPEED = 1.0f;
 static const float IDEL_WALK_SPEED = 0.5f;
 // 攻撃幅
@@ -20,12 +22,14 @@ public:
 private:
 	EnemyState m_State;
 	int m_HpHndl;
+	int m_HpBackHndl;
 
 	int m_Type;
 	int m_Hp;
 	int m_Power;
 	int m_Exp;
 	int m_MoveDelay; // 動きに遅延をかける変数
+	int m_MaxHp;
 
 	VECTOR m_AtPos;
 	int m_AtTime;
@@ -41,6 +45,8 @@ private:
 
 	void PlRotAns(VECTOR pos);
 
+	void DrawHpBar();
+
 public:
 	// コンストラクタ・デストラクタ
 	EnemyBase();
@@ -48,12 +54,11 @@ public:
 
 	void Init();
 	// ロード
-	void Load(int originhndl,int hphandl);
+	void Load(int originhndl);
 	// 全処理
 	void Step(VECTOR pos);
 	// 描画
 	void Draw();
-	void DrawHpBar();
 
 	bool Request();
 	int Death(); // 死亡時に行う処理
@@ -71,6 +76,7 @@ public:
 
 	void SetType(int type) { m_Type = type; }
 	void SetHp(int hp) { m_Hp = hp; }
+	void SetMaxHp(int hp) { m_MaxHp = hp; }
 	void SetPower(int power) { m_Power = power; }
 	void SetExp(int exp) { m_Exp = exp; }
 

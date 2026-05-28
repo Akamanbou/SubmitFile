@@ -44,17 +44,15 @@ void EnemyManager::Load()
 		{
 		case 0:
 			Hndl = MV1LoadModel(MODEL_PATH[e->GetType()]);
-			HpHndl = MV1LoadModel(HP_BAR_IMAGE);
 			break;
 		case 1:
 			Hndl = MV1LoadModel(MODEL_PATH[e->GetType()]);
-			HpHndl = MV1LoadModel(HP_BAR_IMAGE);
 			break;
 		}
-		e->Load(Hndl,HpHndl);
+		e->Init();
+		e->Load(Hndl);
 	}
 	MV1DeleteModel(Hndl);
-	MV1DeleteModel(HpHndl);
 }
 
 // ‘Ss“®
@@ -73,7 +71,6 @@ void EnemyManager::Draw()
 	for (auto e : m_Data->GetEnemyData())
 	{
 		e->Draw();
-		e->DrawHpBar();
 	}
 }
 
