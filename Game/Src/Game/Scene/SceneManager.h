@@ -4,10 +4,12 @@
 #include"ResultScene.h"
 #include"../../Lib/Input/Input.h"
 #include"../../Lib/Input/PadInput.h"
+#include"../../Lib/system/SoundManager.h"
 
 class SceneManager
 {
 private:
+	SoundManager m_Sound;
 	// ゲームの処理の流れ
 	enum tagScene {
 		INIT,
@@ -24,6 +26,7 @@ private:
 public:
 	// コンストラクタ
 	SceneManager();
+	~SceneManager();
 
 	// 実行処理
 	int Loop();

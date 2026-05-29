@@ -36,7 +36,9 @@ int TitleScene::Loop()
 		break;
 	case TitleScene::MAIN:
 		Step();
-		m_State = END; // 次へ進む
+		// 左クリックをするか、Bボタンを押したらゲームへ進む
+		if (CInput::IsPush(MOUSE_LEFT) || CGamePad::IsPadPush(DX_INPUT_PAD1, BUTTON_B))
+			m_State = END;
 		break;
 	case TitleScene::END:
 		Exit();
@@ -57,7 +59,9 @@ int TitleScene::Loop()
 void TitleScene::Draw()
 {
 	// タイトル中にタイトルと描画するようにする
+	DrawRotaGraph(WINDOW_SIZE_X / 2, WINDOW_SIZE_Y / 2, 1.0f, 0.0f, m_Hndl, true);
 	DrawFormatString(20, 45, WHITE, "タイトル");
+
 }
 
 //-----------------------------------
@@ -65,6 +69,7 @@ void TitleScene::Draw()
 //-----------------------------------
 void TitleScene::Init()
 {
+	m_Hndl = -1;
 }
 
 //-----------------------------------
@@ -72,6 +77,8 @@ void TitleScene::Init()
 //-----------------------------------
 void TitleScene::Load()
 {
+	if (m_Hndl == -1)
+		m_Hndl = LoadGraph(TITLE_IMAGE);
 }
 
 //-----------------------------------

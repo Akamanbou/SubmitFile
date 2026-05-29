@@ -4,6 +4,7 @@
 #include <math.h>
 #include"../Src/Game/Scene/SceneManager.h"
 #include"../Src/Lib/Debug/Debug.h"
+#include"../Src/Lib/system/SoundManager.h"
 
 
 
@@ -54,8 +55,11 @@ int  WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	while (ProcessMessage() != -1)
 	{
 		//エスケープキーが押されたら終了
-		if (CheckHitKey(KEY_INPUT_ESCAPE) == 1) break;
-
+		if (CheckHitKey(KEY_INPUT_ESCAPE) == 1)
+		{
+			SoundManager::AllStop();
+			break;
+		}
 		if (IsNextFame() == false)continue;
 
 		ClearDrawScreen();	// 画面クリア

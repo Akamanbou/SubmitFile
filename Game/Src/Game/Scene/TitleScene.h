@@ -1,6 +1,11 @@
 #pragma once
 #include<DxLib.h>
 #include"../Common.h"
+#include"../../Lib/Input/Input.h"
+#include"../../Lib/Input/PadInput.h"
+
+static const char TITLE_IMAGE[] = { "../Data/Image/RPGTitle.png" };
+
 
 class TitleScene
 {
@@ -20,6 +25,8 @@ public:
 	// コンストラクタ・デストラクタ
 	TitleScene();
 	~TitleScene();
+
+	int m_Hndl;
 
 	// 繰り返し行う処理
 	int Loop();
